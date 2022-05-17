@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/*font-family: 'Poppins', sans-serif;  */
+
+/* font-family: 'Langar', cursive; */
+*{
+    font-family: 'Poppins', sans-serif;
+}
+/* navbar styling */
+#login{
+    width: 150px;
+    border-radius: 30px;
+    mix-blend-mode: passthrough;
+    background-color: #B4E197;
+    height: 40px;
+    font-weight: 700;
+}
+.mx-auto .nav-link{
+    margin-left: 50%;
+    font-weight: 700;
+    font-size: 3vh;
+}
+#safe{
+    font-family: 'Langar', cursive; 
+    color:;
+}
