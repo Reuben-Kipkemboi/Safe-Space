@@ -7,13 +7,13 @@ from ..models import User,Share,Comment,Post
 
 # from flask_login import login_required,current_user
 
+#Index file or our home file
 @main.route('/')
 def index():
 
-
     return render_template('index.html')
 
-#Posts form
+#Posts/user stories form
 @main.route('/share-story',methods=['GET', 'POST'])
 def new_posts():
     form = PostsForm()
@@ -28,10 +28,16 @@ def new_posts():
         return redirect(url_for('main.index'))
     return render_template('posts.html',form = form)
 
-
+# all the posts/user stories
 @main.route('/posts')
 def posts():
     posts = Post.query.order_by(Post.addition_time.desc()).all()
 
     return render_template('overall.html', posts=posts)
+#single posts
+@main.route('/post/<post_id>', methods=['GET', 'POST'])
+def single_story(post_id):
+    user_story=Post.query.filter_by(id=post_id).first()
+    print(user_story)
+    return render_template('single.html',user_story=user_story)
 
