@@ -1,0 +1,7 @@
+body{
+    background-image: url(/app/static/green.jpg);
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-color: black;
+    overflow-x: hidden;
+}
