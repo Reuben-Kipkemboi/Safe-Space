@@ -1,6 +1,6 @@
 # Safe Space
 
-# Contributors
+### Contributors
 
 ### Reuben Kipkemboi
 ### Charity Mutembei

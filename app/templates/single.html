@@ -1,17 +1,17 @@
 {% extends 'base.html'%}
+{% block content%}
+<div class="container-fluid">
 
+    <div class="row">
+        <div class="col-md-2">
+            <img src="" class="img-responsive">
+        </div>
 
-<!-- start of Content block -->
-{% block content %}
-<div class="cointainer-fluid">
-    div.col
+        <div class="col-sm-8">
+            {{format_user_story|safe}}
+        </div>
 
-    <div class="panel-body text-center">
-        <p>{{ user_story.post_content }}</p>
-        {{user_story.addition_time.strftime("%m/%d/%Y")}}
+        <div class="col-md-2"></div>
     </div>
-
-
 </div>
-<!--  end of block content -->
-{% endblock%}
+{%endblock%}
