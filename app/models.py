@@ -25,7 +25,7 @@ class User( UserMixin, db.Model):
     email = db.Column(db.String(255),unique = True, index = True)
     avatar = db.Column(db.String())
     password_secure = db.Column(db.String(255))
-    post_types = db.relationship('Pitch', backref='user', lazy='dynamic')
+    post_types = db.relationship('Post', backref='user', lazy='dynamic')
     comments = db.relationship('Comment', backref='user', lazy='dynamic')
     
     #used to create a write only class property password
@@ -58,7 +58,7 @@ class Post(db.Model):
     
     def save_posts(self):
         db.session.add(self)
-        db.session.commit()
+        db.session.commit() 
         
     @classmethod
     def get_user_posts(cls,pitch_type_category):
