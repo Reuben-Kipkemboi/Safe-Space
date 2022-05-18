@@ -9,13 +9,12 @@ from ..models import User,Share,Comment,Post
 
 @main.route('/')
 def index():
-    posts = Post.query.order_by(Post.addition_time.desc()).all()
 
 
-    return render_template('index.html', posts=posts)
+    return render_template('index.html')
 
 #Posts form
-@main.route('/create_posts',methods=['GET', 'POST'])
+@main.route('/share-story',methods=['GET', 'POST'])
 def new_posts():
     form = PostsForm()
     if form.validate_on_submit():
@@ -28,3 +27,11 @@ def new_posts():
     
         return redirect(url_for('main.index'))
     return render_template('posts.html',form = form)
+
+
+@main.route('/posts')
+def posts():
+    posts = Post.query.order_by(Post.addition_time.desc()).all()
+
+    return render_template('overall.html', posts=posts)
+
