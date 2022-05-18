@@ -2,7 +2,7 @@ import os
 
 class Config:
     # UPLOADED_PHOTOS_DEST ='app/static/photos'
-
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://norah:1234we@localhost/safe-space'
     # API_KEY = os.environ.get('API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
     
@@ -16,7 +16,8 @@ class ProdConfig(Config):
 
 
 class DevConfig(Config):
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://'
+    
+    
     DEBUG = True
 
 config_options = {
