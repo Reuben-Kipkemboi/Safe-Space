@@ -41,3 +41,4 @@ def single_story(post_id):
     print(user_story)
     return render_template('single.html',user_story=user_story)
 
+
