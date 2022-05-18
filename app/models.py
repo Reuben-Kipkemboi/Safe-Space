@@ -6,14 +6,13 @@
 ## subscribers /share option
 from datetime import datetime
 from flask_login import UserMixin
-from . import db, login_manager
+from . import db
 #securing user passwords
 from werkzeug.security import generate_password_hash,check_password_hash
-from . import login_manager
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+# @login_manager.user_loader
+# def load_user(user_id):
+#     return User.query.get(int(user_id))
 
 #Users table
 
