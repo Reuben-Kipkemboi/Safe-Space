@@ -17,6 +17,15 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" />
+
+
+    {%block styles %}
+    <!-- {{super()}} -->
+    <!--Importing the simple mde css and js files  -->
+    {{ simplemde.css}}
+    {{ simplemde.js }}
+
+    {% endblock %}
     <title>Safe Space</title>
 </head>
 
