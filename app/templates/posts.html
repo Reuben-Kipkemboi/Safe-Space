@@ -3,10 +3,10 @@
 <!-- content goes in here -->
 {% block content %}
 <div class="container-fluid p-5" id="blog-section">
-    <div class="row">
+    <div class="row bg-light">
         <div class="col-md-2">
         </div>
-        <div class="col-md-8" id="blog-form">
+        <div class="col-md-8" id="post-form">
             <h3 class="text-center">Tell us your story</h3>
             {{wtf.quick_form(form)}}
             {{simplemde.load}}
@@ -15,7 +15,7 @@
         
     </div>
 
-    <div class="login-form text-center ">
+    <!-- <div class="login-form text-center ">
         <form method="POST"action="" class="mx-4 mt-4 mx-auto w-50 ">
             {{ form.hidden_tag()}}
         <fieldset >
@@ -34,6 +34,6 @@
             </div>
         </fieldset>
         </form>
-        </div>
+        </div> -->
 </div>
 {% endblock %}
