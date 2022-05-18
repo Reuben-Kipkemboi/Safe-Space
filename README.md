@@ -115,13 +115,12 @@ chmod a+x start.sh
 
 ## Authors Info
 
-* Email - [Reuben Kipkemboi](https://gmail.com) :email: 
-* Email - [Charity Mutembei](https://gmail.com) :email:
-* Email - [Norah Waswala](https://gmail.com) :email:
-* Email - [Kelvin Wepo](https://gmail.com) :email:
+* [Reuben Kipkemboi](https://gmail.com) :email: 
+* [Charity Mutembei](https://gmail.com) :email:
+* [Norah Waswala](https://gmail.com) :email:
+* [Kelvin Wepo](https://gmail.com) :email:
 
 
 <p align = "center">
-
-    &copy; 2022 @ Group Five Invictus.
+    &copy; 2022 @Group-Five-Invictus.
 </p>
