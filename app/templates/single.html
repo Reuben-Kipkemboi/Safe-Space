@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+
+
+<!-- start of Content block -->
+{% block content %}
+<div class="cointainer">
+
+    {% for post in posts %}
+    <p>My post{{post.post_content}}</p>
+    {% endfor %}
+
+
+
+</div>
+<!--  end of block content -->
+{% endblock%}

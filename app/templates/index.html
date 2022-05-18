@@ -4,8 +4,9 @@
 <!-- Content block -->
 {% block content %}
 
-<div class="container-fluid">
+<div class="container-fluid text-center">
   <h3>safe space</h3>
-</div>
 
-{% endblock%}
+  <a href="{{url_for('main.new_posts')}}"><button type="button" class="btn btn-success fw-bold">Create a story / share Your story</button></a>
+  </div>
+  {% endblock%}

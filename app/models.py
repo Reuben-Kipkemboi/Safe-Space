@@ -6,14 +6,13 @@
 ## subscribers /share option
 from datetime import datetime
 from flask_login import UserMixin
-from . import db, login_manager
+from . import db
 #securing user passwords
 from werkzeug.security import generate_password_hash,check_password_hash
-from . import login_manager
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+# @login_manager.user_loader
+# def load_user(user_id):
+#     return User.query.get(int(user_id))
 
 #Users table
 
@@ -26,7 +25,7 @@ class User( UserMixin, db.Model):
     email = db.Column(db.String(255),unique = True, index = True)
     avatar = db.Column(db.String())
     password_secure = db.Column(db.String(255))
-    post_types = db.relationship('Pitch', backref='user', lazy='dynamic')
+    post_types = db.relationship('Post', backref='user', lazy='dynamic')
     comments = db.relationship('Comment', backref='user', lazy='dynamic')
     
     #used to create a write only class property password
@@ -49,8 +48,9 @@ class User( UserMixin, db.Model):
 class Post(db.Model):
     __tablename__ = 'posts'
     id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(255),nullable = False)
+    title = db.Column(db.String(255),nullable = False)
     post_content = db.Column(db.Text(), nullable = False)
+    author_name = db.Column(db.String(255),nullable = False)
     addition_time = db.Column(db.DateTime, default = datetime.utcnow)
     category = db.Column(db.String(255), index = True)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
@@ -58,7 +58,7 @@ class Post(db.Model):
     
     def save_posts(self):
         db.session.add(self)
-        db.session.commit()
+        db.session.commit() 
         
     @classmethod
     def get_user_posts(cls,pitch_type_category):
