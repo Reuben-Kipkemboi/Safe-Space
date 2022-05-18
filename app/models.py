@@ -48,8 +48,9 @@ class User( UserMixin, db.Model):
 class Post(db.Model):
     __tablename__ = 'posts'
     id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(255),nullable = False)
+    title = db.Column(db.String(255),nullable = False)
     post_content = db.Column(db.Text(), nullable = False)
+    author_name = db.Column(db.String(255),nullable = False)
     addition_time = db.Column(db.DateTime, default = datetime.utcnow)
     category = db.Column(db.String(255), index = True)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
