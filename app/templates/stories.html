@@ -24,20 +24,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/landingpage.html"
+                  <a class="nav-link active" aria-current="page" href="{{url_for('main.index')}}"
                     style="color: #B4E197; font-size: 0.5cm; font-weight: 900; margin-left: 570%; ">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/about.html"
-                    style="color: #B4E197; font-size: 0.5cm; font-weight: 900; margin-left: 670%">About</a>
+                  <a class="nav-link" href="{{url_for('main.new_posts')}}"
+                    style="color: #B4E197; font-size: 0.5cm; font-weight: 900; margin-left: 670%">Create</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#"
                     style="color: #B4E197; font-size: 0.5cm; font-weight: 900; margin-left: 770%">Stories</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"
-                    style="color: black; font-size: 0.5cm; font-weight: 900; margin-left: 570%; margin-right: -5%; border: 1px solid lightgreen; width: 3.5cm; text-align: center; background-color: #B4E197; border-radius: 3cm; ">Login</a>
                 </li>
               </ul>
       
@@ -49,14 +45,44 @@
       <!-- message  -->
 
     <div class="container">
-        <div class="message">
-            <p style="font-size: 0.4cm; font-weight: 900; margin-top: 5%; color: white; margin-left: 45%;">We understand the
-                hardship in being sidelined.
-                Perhaps even in interventions based to solve gender-based violence and all that suffers with it.
-                We are here to help!</p>
+  <div class="row" style="font-size: 0.4cm; font-weight: 900; color: white; margin-left: 45%;">
+    <div class="col-md-12">
+      <div class="tab-content mt-3">
+        <div class="tab-pane fade show active" id="relevant" role="tabpanel" aria-labelledby="relevant-tab">
+          {% for post in posts %}
+          <div class="card m-3 shadow p-2">
+            <div class="card-body">
+              <div class="d-flex flex-row user-info">
+                <i class="fa-solid fa-user-large fs-5"></i>
+                <div class="d-flex flex-column justify-content-start ml-2">
+                  <span class="d-block fw-bold">{{post.author_name}}</span>
+                  <span class="date text-black-50" style="font-size: 15px;"><i class="fas fa-calendar-alt"></i>
+                    {{post.addition_time.strftime('%d/%m/%Y, %I:%M %p') }}</span>
+                </div>
+              </div>
+              <a href="" id="link">
+                <h5 class="card-title"><b id="bold">{{ post.title }}</b></h5>
+              </a>
+              <p class="card-text text-muted">{{ post.post_content[:250]|safe + " ....." }}</p>
+
+              <a class="float-left" style="margin-right: 5px;" href="{{url_for('main.post',id=post.id)}}">
+                <button class="btn btn-outline-warning btn-sm"><i class="fa-solid fa-eye"></i> View More</button>
+              </a>
+              <a href="">
+                <button class="btn btn-outline-success btn-sm" data-toggle="modal" data-target=""><i class="fa-solid fa-square-share-nodes"></i> Share Post</button>
+              </a>
+              <a class="float-right" href="{{url_for('main.comment',id=post.id)}}">
+                <button class="btn btn-outline-primary btn-sm"><i class="far fa-comment-alt"></i> Comment</button>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
         </div>
+      </div>
+    </div>
+  </div>
     
-        <div class="row" style="margin-top: 10%;">
+        <div class="row">
             <div class="col">
                 <a class="nav-link" href="/write/new"
                     style=" margin-left: 87%; margin-top: 25%; color: black; font-size: 0.5cm; font-weight: 900; border: 1px solid lightgreen; width: 4cm; text-align: center; background-color: #B4E197; border-radius: 3cm; ">Next</a>
