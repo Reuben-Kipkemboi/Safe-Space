@@ -27,19 +27,23 @@ How much is our generation broken? In the midst of any conflict there is  always
 
 [Go Back to the top](##safe-space)
 
-Writers view
+Home module
 
-![Home page]()
+![Home page](./app/static/images/home1.png)
 
 Users View
 
-![Home page from a writers Account]()
+![logged in User](./app/static/images/logged.png)
 
 
 ## Behaviour Driven Development
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
-
+| Application starts | **On page load** | Application hoe page/landing page |
+| Login| **user email** and **user Password/passcode** | If account already exists redirect to home page. |
+| Sign up/ Register | **Username**, **user email** **password** | Redirects to login page for user to login into the application|
+| click on Create route | **Share story** | User make a story of previous experiences|
+| Comment button | **button click** | users can give opinions on other peoples experiences|
 
 ## Installation Requirements
 
@@ -113,7 +117,7 @@ chmod a+x start.sh
 * [Design](https://www.figma.com/file/pWbQO9a7W4LvFM6ArLdQhW/Safe-Space?node-id=0%3A1)
 
 ## Live Site
-* #### 
+* #### safe-space22.herokuapp.com
 
 ## Authors Info
 
