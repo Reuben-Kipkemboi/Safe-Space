@@ -1,10 +1,15 @@
+
+
 from flask import render_template,request,redirect,url_for,abort,flash
+from flask_login import login_required
 from . import main
+
 from..import db
 # from flask_login import login_required,current_user
 from .forms import PostsForm
 from ..models import User,Share,Comment,Post
 import markdown2
+
 
 # from flask_login import login_required,current_user
 
@@ -30,11 +35,11 @@ def new_posts():
     return render_template('posts.html',form = form)
 
 # all the posts/user stories
-@main.route('/posts')
+@main.route('/stories')
 def posts():
     posts = Post.query.order_by(Post.addition_time.desc()).all()
 
-    return render_template('overall.html', posts=posts)
+    return render_template('stories.html', posts=posts)
 #single posts
 @main.route('/post/<post_id>', methods=['GET', 'POST'])
 def single_story(post_id):
@@ -48,5 +53,16 @@ def single_story(post_id):
     print(user_story.post_content)
     
     return render_template('single.html',user_story=user_story, format_user_story=format_user_story)
+
+
+
+    return render_template('index.html')
+
+@main.route('/about')
+def about():
+
+
+    return render_template('about.html')
+
 
 
