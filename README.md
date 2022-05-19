@@ -120,7 +120,7 @@ chmod a+x start.sh
 * **[Design](https://www.figma.com/file/pWbQO9a7W4LvFM6ArLdQhW/Safe-Space?node-id=0%3A1)**
 
 ## Live Site
-#### safe-space22.herokuapp.com
+#### https://safe-space22.herokuapp.com/
 
 ## Authors Info
 
