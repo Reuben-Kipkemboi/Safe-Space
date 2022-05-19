@@ -40,6 +40,8 @@ def posts():
     posts = Post.query.order_by(Post.addition_time.desc()).all()
 
     return render_template('stories.html', posts=posts)
+
+
 #single posts
 @main.route('/post/<post_id>', methods=['GET', 'POST'])
 def single_story(post_id):
@@ -53,10 +55,6 @@ def single_story(post_id):
     print(user_story.post_content)
     
     return render_template('single.html',user_story=user_story, format_user_story=format_user_story)
-
-
-
-    return render_template('index.html')
 
 @main.route('/about')
 def about():
