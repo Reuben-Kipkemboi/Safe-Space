@@ -117,11 +117,11 @@ chmod a+x start.sh
 [MIT License](LICENSE)
 
 ## Design Link
-* [Design](https://www.figma.com/file/pWbQO9a7W4LvFM6ArLdQhW/Safe-Space?node-id=0%3A1)
+* **[Design](https://www.figma.com/file/pWbQO9a7W4LvFM6ArLdQhW/Safe-Space?node-id=0%3A1)**
 
 ## Live Site
 
-* #### safe-space22.herokuapp.com
+#### safe-space22.herokuapp.com
 
 ## Authors Info
 
