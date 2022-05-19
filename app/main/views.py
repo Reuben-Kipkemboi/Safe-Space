@@ -1,15 +1,13 @@
 from flask import render_template,request,redirect,url_for,abort,flash
-from flask_login import login_required
+from flask_login import current_user, login_required
 from . import main
 
 from..import db
-# from flask_login import login_required,current_user
-from .forms import PostsForm
+from flask_login import login_required,current_user
+from .forms import PostsForm, CommentForm
 from ..models import User,Share,Comment,Post
 import markdown2
 
-
-# from flask_login import login_required,current_user
 
 #Index file or our home file
 @main.route('/')
@@ -51,21 +49,27 @@ def single_story(post_id):
         abort(404)
     format_user_story = markdown2.markdown(user_story.post_content,extras=["code-friendly", "fenced-code-blocks"])
     print(user_story.post_content)
-    
     return render_template('single.html',user_story=user_story, format_user_story=format_user_story)
 
-
-
-   
-
-@main.route('/comment/<post_id>', methods = ['Post','GET'])
+@main.route('/comment/<post_id>', methods=['GET', 'POST'])
 # @login_required
-def comment(post_id):
+def make_comment(post_id):
+    user_comments = Comment.query.filter_by(post_id=post_id).all()
     post = Post.query.get(post_id)
-    comment =request.form.get('newcomment')
-    new_comment = Comment(comment = comment, post_id=post_id)
-    new_comment.save()
-    return redirect(url_for('main.post',id = post.id))
+    form = CommentForm()
+    #If blog does not exist
+    if post is None:
+        abort(404)
+    if form.validate_on_submit():
+            comment = Comment(comment_Message=form.content.data,post_id=post_id,
+            user_id=current_user.id)
+            db.session.add(comment)
+            db.session.commit()
+            #Reset form after submitting comment
+            form.content.data = ''
+            return redirect(url_for('main.posts'))
+    return render_template('comment.html',post= post, user_comments =user_comments, form = form)
+
 @main.route('/post/<id>')
 def post(id):
     comments = Comment.query.filter_by(post_id=id).all()
