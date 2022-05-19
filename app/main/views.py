@@ -1,3 +1,4 @@
+from cmath import log
 from flask import render_template,request,redirect,url_for,abort,flash
 from flask_login import current_user, login_required
 from . import main
@@ -17,6 +18,7 @@ def index():
 
 #Posts/user stories form
 @main.route('/share-story',methods=['GET', 'POST'])
+@login_required
 def new_posts():
     form = PostsForm()
     if form.validate_on_submit():
@@ -40,6 +42,7 @@ def posts():
 
 #single posts
 @main.route('/post/<post_id>', methods=['GET', 'POST'])
+@login_required
 def single_story(post_id):
     
     user_story=Post.query.filter_by(id=post_id).first()
