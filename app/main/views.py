@@ -56,11 +56,30 @@ def single_story(post_id):
     
     return render_template('single.html',user_story=user_story, format_user_story=format_user_story)
 
+
+
+   
+
+@main.route('/comment/<post_id>', methods = ['Post','GET'])
+# @login_required
+def comment(post_id):
+    post = Post.query.get(post_id)
+    comment =request.form.get('newcomment')
+    new_comment = Comment(comment = comment, post_id=post_id)
+    new_comment.save()
+    return redirect(url_for('main.post',id = post.id))
+@main.route('/post/<id>')
+def post(id):
+    comments = Comment.query.filter_by(post_id=id).all()
+    post = Post.query.get(id)
+    return render_template('post.html',post=post,comments=comments)
+
 @main.route('/about')
 def about():
 
 
     return render_template('about.html')
+
 
 
 
