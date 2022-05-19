@@ -40,6 +40,8 @@ def posts():
     posts = Post.query.order_by(Post.addition_time.desc()).all()
 
     return render_template('stories.html', posts=posts)
+
+
 #single posts
 @main.route('/post/<post_id>', methods=['GET', 'POST'])
 def single_story(post_id):
@@ -55,7 +57,8 @@ def single_story(post_id):
     return render_template('single.html',user_story=user_story, format_user_story=format_user_story)
 
 
-    return render_template('index.html')
+
+   
 
 @main.route('/comment/<post_id>', methods = ['Post','GET'])
 # @login_required
@@ -70,3 +73,13 @@ def post(id):
     comments = Comment.query.filter_by(post_id=id).all()
     post = Post.query.get(id)
     return render_template('post.html',post=post,comments=comments)
+
+@main.route('/about')
+def about():
+
+
+    return render_template('about.html')
+
+
+
+
