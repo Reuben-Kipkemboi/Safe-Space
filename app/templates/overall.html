@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+
+
+<!-- Content block -->
+{% block content %}
+
+<div class="container-fluid">
+  <p>some posts</p>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <div class="tab-content mt-3">
+        <div class="tab-pane fade show active" id="relevant" role="tabpanel" aria-labelledby="relevant-tab">
+          {% for post in posts %}
+          <div class="card m-3 shadow p-2">
+            <div class="card-body">
+              <div class="d-flex flex-row user-info">
+                <i class="fa-solid fa-user-large fs-5"></i>
+                <div class="d-flex flex-column justify-content-start ml-2">
+                  <span class="d-block fw-bold">{{post.author_name}}</span>
+                  <span class="date text-black-50" style="font-size: 15px;"><i class="fas fa-calendar-alt"></i>
+                    {{post.addition_time.strftime('%d/%m/%Y, %I:%M %p') }}</span>
+                </div>
+              </div>
+              <a href="" id="link">
+                <h5 class="card-title"><b id="bold">{{ post.title }}</b></h5>
+              </a>
+              <p class="card-text text-muted">{{ post.post_content[:250]|safe + " ....." }}</p>
+
+              <a class="float-left" style="margin-right: 5px;" href="{{url_for('main.single_story',post_id=post.id)}}">
+                <button class="btn btn-outline-warning btn-sm"><i class="fa-solid fa-eye"></i> View More</button>
+              </a>
+              <a href="">
+                <button class="btn btn-outline-success btn-sm" data-toggle="modal" data-target=""><i class="fa-solid fa-square-share-nodes"></i> Share Post</button>
+              </a>
+              
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock%}

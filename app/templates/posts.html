@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+<!-- content goes in here -->
+{% block content %}
+
+    <div class="row bg-light">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8" id="post-form">
+            <div class="mb-3">
+                <h3 class="text-center">You are not Alone</h3>
+                <small class="text-center">We believe stories are powerful. If you feel comfortable, share your story and be a part of Our Wave.</small>
+            </div>
+            {{wtf.quick_form(form)}}
+            {{simplemde.load}}
+
+            <button type="button" class="btn btn-outline-dark">Back to Home</button>
+        </div>
+        <div class="col-md-2"></div>
+        
+    </div>
+
+    <!-- <div class="login-form text-center ">
+        <form method="POST"action="" class="mx-4 mt-4 mx-auto w-50 ">
+            {{ form.hidden_tag()}}
+        <fieldset >
+            <legend>Tell us your story</legend>
+            <div class="form-group ">
+                {{form.title.label(class="form-control-label")}}
+                {{form.title(class='form-control',placeholder='post title')}} 
+                <br>
+                {{form.author.label(class="form-control-label")}}
+                {{form.author(class='form-control',placeholder='your name')}}
+                <br>
+                {{form.content.label(class= "form-control-label")}}
+                {{form.content(class='form-control',placeholder='my story')}} 
+                <br>
+                {{ form.submit(class='form-control btn-success')}}
+            </div>
+        </fieldset>
+        </form>
+        </div> -->
+</div>
+{% endblock %}

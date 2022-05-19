@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-2">
+            <img src="" class="img-responsive">
+        </div>
+
+        <div class="col-sm-8 mt-5">
+            <h5><b>{{ user_story.title }}</b></h5>
+            {{format_user_story|safe}}
+            <div class="bottom">
+                Author:<p>{{ user_story.author_name }}</p>
+                Date:<p class="fst-italic">{{ user_story.addition_time.strftime('%d/%m/%Y') }}</p>
+
+            </div>
+        </div>
+
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+{%endblock%}

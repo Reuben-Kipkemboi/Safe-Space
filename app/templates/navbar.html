@@ -1,19 +1,42 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- Content block -->
+{% block content %}
+<div class="container" style="margin-top: 1%;">
+  <nav class="navbar navbar-expand-lg navbar-light " id="nav">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="#" id="safe">Safe Space</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand fst-italic" id="home" href="/" style="color: black; font-size: 0.7cm; font-weight: 900;">Safe
+        Space</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav mx-auto">
-          <a class="nav-link" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">About</a>
-          <a class="nav-link" href="#">Categories</a>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto" id="ul">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/"
+              style="color: black; font-size: 0.5cm; font-weight: 900;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('main.new_posts')}}" style="color: black; font-size: 0.5cm; font-weight: 900;">Create</a>
+          </li>
 
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="#"><button type="button" class="btn" id="login">Login</button></a>
-        </div>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('main.posts')}}"style="color: black; font-size: 0.5cm; font-weight: 900;">Stories</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right ms-auto">
+          {% if current_user.is_authenticated %}
+          <button type="button " class="btn btn-outline-dark">{{current_user.username}}</button>
+          <a href="/newblog" class="tag"><button type="button" class="btn btn-outline-dark ms-1">Share your
+              Story</button></a>
+          <a href="{{url_for('auth.logout')}}"><button type="button"
+              class="btn btn-outline-dark ms-1">Logout</button></a></li>
+          {% else %}
+          <a class="nav-link" href="{{url_for('auth.login')}}"
+            style="color: black; font-size: 0.5cm; font-weight: 900;   border: 1px solid lightgreen; width: 4.5cm; text-align: center; background-color: #B4E197; border-radius: 3cm; ">Login
+          </a>
+          {%endif%}
+        </ul>
       </div>
     </div>
   </nav>
+  {% endblock%}

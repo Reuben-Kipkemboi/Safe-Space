@@ -1,0 +1,8 @@
+body{
+    background-image: url(/app/static/green1.jpg);
+    background-size: 45%;
+    background-repeat: no-repeat;
+    /* background-color: #4C7B2E; */
+    background-color: #749e41;
+    overflow-x: hidden;
+}
