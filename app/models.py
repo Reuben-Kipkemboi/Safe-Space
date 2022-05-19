@@ -47,7 +47,13 @@ class User( UserMixin, db.Model):
 #Post table
 class Post(db.Model):
     __tablename__ = 'posts'
+
+    all_posts = []
+
+
     id = db.Column(db.Integer, primary_key = True)
+
+
     title = db.Column(db.String(255),nullable = False)
     post_content = db.Column(db.Text(), nullable = False)
     author_name = db.Column(db.String(255),nullable = False)

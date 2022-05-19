@@ -1,12 +1,17 @@
+
+
 from flask import render_template,request,redirect,url_for,abort,flash
-from flask_login import current_user
+from flask_login import login_required
 from . import main
+
 from..import db
 # from flask_login import login_required,current_user
 from .forms import PostsForm
 from ..models import User,Share,Comment,Post
 import markdown2
 
+
+# from flask_login import login_required,current_user
 
 #Index file or our home file
 @main.route('/')
@@ -30,11 +35,11 @@ def new_posts():
     return render_template('posts.html',form = form)
 
 # all the posts/user stories
-@main.route('/posts')
+@main.route('/stories')
 def posts():
     posts = Post.query.order_by(Post.addition_time.desc()).all()
 
-    return render_template('overall.html', posts=posts)
+    return render_template('stories.html', posts=posts)
 #single posts
 @main.route('/post/<post_id>', methods=['GET', 'POST'])
 def single_story(post_id):
@@ -56,7 +61,7 @@ def single_story(post_id):
 # @login_required
 def comment(post_id):
     post = Post.query.get(post_id)
-    # comment =request.form.get('newcomment')
+    comment =request.form.get('newcomment')
     new_comment = Comment(comment = comment, post_id=post_id)
     new_comment.save()
     return redirect(url_for('main.post',id = post.id))
