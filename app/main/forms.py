@@ -1,3 +1,4 @@
+
 from flask_wtf import FlaskForm
 
 
@@ -12,4 +13,5 @@ class PostsForm(FlaskForm):
     author = StringField('Post Author Name',validators=[DataRequired()])
     content = TextAreaField('Your Personal Story')
     submit = SubmitField('Make A Post')
+
 
