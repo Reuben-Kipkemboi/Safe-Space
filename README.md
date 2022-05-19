@@ -23,7 +23,10 @@ How much is our generation broken? In the midst of any conflict there is  always
 
 ## User Stories
 
-- 
+- As a user I would like to login to the application if i want to.
+- As a user I would like to comment on other peoples stories anonymously.
+- As a user i would like to share my story in writing , and also be able to see other people's stories and be able to comment them.
+- As a user I would like to see the user story in details
 
 [Go Back to the top](##safe-space)
 
@@ -117,6 +120,7 @@ chmod a+x start.sh
 * [Design](https://www.figma.com/file/pWbQO9a7W4LvFM6ArLdQhW/Safe-Space?node-id=0%3A1)
 
 ## Live Site
+
 * #### safe-space22.herokuapp.com
 
 ## Authors Info
