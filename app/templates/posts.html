@@ -2,43 +2,19 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 <!-- content goes in here -->
 {% block content %}
-<div class="container-fluid p-5" id="blog-section">
-    <div class="container" style="margin-top: 1%;">
-        <nav class="navbar navbar-expand-lg">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="/" style="color: black; font-size: 0.7cm; font-weight: 900;">Safe Space</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/"
-                    style="color: black; font-size: 0.5cm; font-weight: 900; margin-left: 370%; ">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('main.new_posts')}}"
-                    style="color: black; font-size: 0.5cm; font-weight: 900; margin-left: 500%">Create</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('main.posts')}}"
-                    style="color: black; font-size: 0.5cm; font-weight: 900; margin-left: 670%">Stories</a>
-                </li>
-              </ul>
-      
-            </div>
-          </div>
-        </nav>
-        <hr>
-      </div>
+
     <div class="row bg-light">
         <div class="col-md-2">
         </div>
         <div class="col-md-8" id="post-form">
-            <h3 class="text-center">Tell us your story</h3>
+            <div class="mb-3">
+                <h3 class="text-center">You are not Alone</h3>
+                <small class="text-center">We believe stories are powerful. If you feel comfortable, share your story and be a part of Our Wave.</small>
+            </div>
             {{wtf.quick_form(form)}}
             {{simplemde.load}}
+
+            <button type="button" class="btn btn-outline-dark">Back to Home</button>
         </div>
         <div class="col-md-2"></div>
         

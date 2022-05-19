@@ -3,14 +3,20 @@
 
 {% block content %}
 <div class="container" id="allcomments">
-    <div class="row">
-        <div class="col-md-2"></div>
-    <div class="col-md-8">
-        <p>Leave your comment here</p>
-        {{wtf.quick_form(form)}}
+    <div class="row mt-3">
+        <div class="col-md-8 shadow " id="comment">
+            <p class="mb-3">Leave your comment here</p>
+            {{wtf.quick_form(form)}}
+        </div>
+        <div class="col-md-4">
+            <h6 class="text-center">Other User Comments Section</h6>
+            {% for comment in user_comments %}
+            <div class="card w-20 mb-2 p-2 shadow" id="user-comment">
+                <p class="fst-italic">{{ comment.comment_Message}}</p>
+                <small><strong>{{ comment.date_posted.strftime("%m/%d/%Y")}}</strong></small>
+            </div>
+            {% endfor %}
+        </div>
     </div>
-    <div class="col-md-2"></div>
-</div>
-</div>
 
-{% endblock%}
+    {% endblock%}

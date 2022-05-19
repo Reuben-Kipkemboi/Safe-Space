@@ -38,3 +38,26 @@
 #safe{
     font-family: 'Langar', cursive; 
 }
+#sign{
+    text-decoration: none;
+    font-style: italic;
+}
+#ul li{
+    padding-left: 70px;
+}
+#ul .nav-item .nav-link:hover{
+    color: #B4E197;
+
+}
+#nav:hover{
+    background-color: #B4E197;
+}
+#log:hover{
+    background-color: white;
+}
+
+#bold{
+    color: #6B419E;
+    /* color: #9E4145; */
+    font-style: normal;
+}
