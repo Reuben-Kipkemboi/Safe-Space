@@ -55,3 +55,9 @@
 #log:hover{
     background-color: white;
 }
+
+#bold{
+    color: #6B419E;
+    /* color: #9E4145; */
+    font-style: normal;
+}
