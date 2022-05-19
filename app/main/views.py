@@ -4,6 +4,7 @@ from..import db
 # from flask_login import login_required,current_user
 from .forms import PostsForm
 from ..models import User,Share,Comment,Post
+import markdown2
 
 # from flask_login import login_required,current_user
 
@@ -37,8 +38,15 @@ def posts():
 #single posts
 @main.route('/post/<post_id>', methods=['GET', 'POST'])
 def single_story(post_id):
+    
     user_story=Post.query.filter_by(id=post_id).first()
+    # user_story =Post.query.get(id)
     print(user_story)
-    return render_template('single.html',user_story=user_story)
+    if user_story is None:
+        abort(404)
+    format_user_story = markdown2.markdown(user_story.post_content,extras=["code-friendly", "fenced-code-blocks"])
+    print(user_story.post_content)
+    
+    return render_template('single.html',user_story=user_story, format_user_story=format_user_story)
 
 

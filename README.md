@@ -1,6 +1,6 @@
 # Safe Space
 
-# Contributors
+### Contributors
 
 ### Reuben Kipkemboi
 ### Charity Mutembei
@@ -105,6 +105,8 @@ chmod a+x start.sh
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
 ## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 [MIT License](LICENSE)
 
 ## Design Link
@@ -115,13 +117,12 @@ chmod a+x start.sh
 
 ## Authors Info
 
-* Email - [Reuben Kipkemboi](https://gmail.com) :email: 
-* Email - [Charity Mutembei](https://gmail.com) :email:
-* Email - [Norah Waswala](https://gmail.com) :email:
-* Email - [Kelvin Wepo](https://gmail.com) :email:
+* [Reuben Kipkemboi](https://gmail.com) :email: 
+* [Charity Mutembei](https://gmail.com) :email:
+* [Norah Waswala](https://gmail.com) :email:
+* [Kelvin Wepo](https://gmail.com) :email:
 
 
 <p align = "center">
-
-    &copy; 2022 @ Group Five Invictus.
+    &copy; 2022 @Group-Five-Invictus.
 </p>
