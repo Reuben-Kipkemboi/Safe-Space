@@ -13,5 +13,11 @@ class PostsForm(FlaskForm):
     author = StringField('Post Author Name',validators=[DataRequired()])
     content = TextAreaField('Your Personal Story')
     submit = SubmitField('Make A Post')
+    
+    
+class CommentForm(FlaskForm):
+    # title = StringField('Comment Title', validators=[DataRequired()])
+    content = TextAreaField('Give your view or comments')
+    submit = SubmitField('Comment')
 
 

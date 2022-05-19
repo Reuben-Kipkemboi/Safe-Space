@@ -71,12 +71,15 @@
               <a href="">
                 <button class="btn btn-outline-success btn-sm" data-toggle="modal" data-target=""><i class="fa-solid fa-square-share-nodes"></i> Share Post</button>
               </a>
-              <a class="float-right" href="{{url_for('main.comment',id=post.id)}}">
+
+              <a class="float-right" href=" {{url_for('main.make_comment',post_id = post.id)}}">
                 <button class="btn btn-outline-primary btn-sm"><i class="far fa-comment-alt"></i> Comment</button>
               </a>
             </div>
           </div>
           {% endfor %}
+
+         
         </div>
       </div>
     </div>
