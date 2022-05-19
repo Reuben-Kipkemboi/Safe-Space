@@ -5,6 +5,7 @@ from..import db
 # from flask_login import login_required,current_user
 from .forms import PostsForm
 from ..models import User,Share,Comment,Post
+import markdown2
 
 
 #Index file or our home file
@@ -37,22 +38,30 @@ def posts():
 #single posts
 @main.route('/post/<post_id>', methods=['GET', 'POST'])
 def single_story(post_id):
+    
     user_story=Post.query.filter_by(id=post_id).first()
+    # user_story =Post.query.get(id)
     print(user_story)
-    return render_template('single.html',user_story=user_story)
+    if user_story is None:
+        abort(404)
+    format_user_story = markdown2.markdown(user_story.post_content,extras=["code-friendly", "fenced-code-blocks"])
+    print(user_story.post_content)
+    
+    return render_template('single.html',user_story=user_story, format_user_story=format_user_story)
+
 
     return render_template('index.html')
 
 @main.route('/comment/<post_id>', methods = ['Post','GET'])
 # @login_required
 def comment(post_id):
-    post = post.query.get(post_id)
-    comment =request.form.get('newcomment')
-    new_comment = Comment(comment = comment, user_id = current_user._get_current_object().id, post_id=post_id)
+    post = Post.query.get(post_id)
+    # comment =request.form.get('newcomment')
+    new_comment = Comment(comment = comment, post_id=post_id)
     new_comment.save()
     return redirect(url_for('main.post',id = post.id))
 @main.route('/post/<id>')
 def post(id):
     comments = Comment.query.filter_by(post_id=id).all()
-    post = post.query.get(id)
+    post = Post.query.get(id)
     return render_template('post.html',post=post,comments=comments)
